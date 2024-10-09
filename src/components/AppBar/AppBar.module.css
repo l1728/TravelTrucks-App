@@ -1,9 +1,0 @@
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-  border: 3px solid #008000;
-  background-color: azure;
-  border-radius: 10px;
-}

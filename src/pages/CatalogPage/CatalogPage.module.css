@@ -1,0 +1,14 @@
+.catalog_card {
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin: 10px;
+}
+
+.catalog_card h2 {
+  font-size: 18px;
+  color: blanchedalmond;
+}
+
+.catalog_card p {
+  color: rgb(239, 239, 243);
+}
