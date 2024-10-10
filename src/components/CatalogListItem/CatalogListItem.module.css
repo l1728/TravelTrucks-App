@@ -1,0 +1,89 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  width: 888px;
+  height: 368px;
+  margin-left: 24px;
+}
+
+.imageContainer {
+  flex: 1;
+}
+
+.carImage {
+  width: 292px;
+  height: 320px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 8px;
+}
+
+.infoContainer {
+  flex: 2;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.carName {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #ddd;
+}
+
+.carLocation,
+.carDetails,
+.carRating {
+  margin-bottom: 8px;
+}
+
+.carLocation,
+.carDetails,
+.kitchen,
+.AC,
+.carAmenities,
+.carRating {
+  color: #ede7e7;
+}
+
+.carDescript {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #ddd;
+  max-width: 525px;
+}
+.showMoreBtn {
+  background-color: #e44848;
+  margin-left: 1px;
+  width: 166px;
+  height: 56px;
+}
+.showMoreBtn:hover {
+  background-color: #d84343;
+}
+.priceAndHeart {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  gap: 6px;
+}
+
+.carPrice {
+  color: white;
+}
+
+.heartIcon {
+  font-size: 18px;
+  margin-left: 8px;
+  cursor: pointer;
+  padding: 1px;
+}

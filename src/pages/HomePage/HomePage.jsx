@@ -1,16 +1,11 @@
-import css from './HomePage.module.css';
+import Header from '../../components/Header/Header.jsx';
+import HomeContent from '../../components/HomeContent/HomeContent.jsx';
 
 const HomePage = () => {
   return (
     <>
-      <div className={css.container}>
-        <h1 className={css.title}>
-          Campers of your dreams{' '}
-          <span role="img" aria-label="Greeting icon">
-            💁‍♀️
-          </span>
-        </h1>
-      </div>
+      <Header />
+      <HomeContent />
     </>
   );
 };

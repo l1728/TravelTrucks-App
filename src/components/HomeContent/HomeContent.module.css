@@ -1,0 +1,45 @@
+.title {
+  font-size: 48px;
+  padding-top: 200px;
+  color: #f7f7f7;
+  padding-left: 64px;
+  padding-bottom: 16px;
+  line-height: 1.5;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+  background-image: url('../../img/HomePageBgr.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.handleViewNowBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-weight: 500;
+  font-size: 16;
+  cursor: pointer;
+  width: 173px;
+  height: 56px;
+  border-radius: 200px;
+  background-color: #e44848;
+  border: none;
+  margin-left: 64px;
+}
+
+.handleViewNowBtn:hover {
+  background-color: #d84343;
+}
+
+.text {
+  font-weight: 500;
+  font-size: 24;
+  line-height: 1.5;
+  color: #f7f7f7;
+  padding-left: 64px;
+  padding-bottom: 40px;
+}

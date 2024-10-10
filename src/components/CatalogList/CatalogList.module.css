@@ -1,0 +1,20 @@
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loadMoreBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+  cursor: pointer;
+  width: 145px;
+  height: 56px;
+}
+
+.loadMoreBtn:hover {
+  border: 2px solid #d84343;
+}
