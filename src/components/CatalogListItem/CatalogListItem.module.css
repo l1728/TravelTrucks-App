@@ -67,6 +67,7 @@
   margin-left: 1px;
   width: 166px;
   height: 56px;
+  border: none;
 }
 .showMoreBtn:hover {
   background-color: #d84343;
