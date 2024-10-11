@@ -8,11 +8,13 @@
   margin-top: 20px;
   padding: 10px 20px;
   background-color: transparent;
-  color: white;
-  border: 2px solid white;
+  color: #101828;
+  border: 2px solid #dadde1;
   cursor: pointer;
   width: 145px;
   height: 56px;
+  font-weight: medium;
+  font-size: 16px;
 }
 
 .loadMoreBtn:hover {
