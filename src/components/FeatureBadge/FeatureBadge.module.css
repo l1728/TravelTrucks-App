@@ -1,0 +1,20 @@
+.badgeContainer {
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 20px;
+  background-color: #f2f4f7; /* М'який фон */
+  margin: 8px; /* Відступ між елементами */
+  height: 48px;
+}
+
+.icon {
+  margin-right: 8px;
+  font-size: 18px; /* Розмір іконки */
+  color: #333; /* Колір іконки */
+}
+
+.text {
+  font-size: 16px;
+  color: #333;
+}

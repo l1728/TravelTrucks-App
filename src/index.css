@@ -4,7 +4,7 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(28, 26, 26, 0.87);
+  color: #475467;
   background-color: #242424;
 
   font-synthesis: none;
@@ -15,7 +15,7 @@
 
 body {
   font-family: 'Inter', sans-serif;
-  font-weight: 400; /* Regular */
+  font-weight: 400;
 }
 
 h1,
