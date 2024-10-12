@@ -16,7 +16,12 @@ const CatalogListItem = ({ camper }) => {
   const handleFavoriteToggle = () => {
     setIsFavorite(prevState => !prevState);
   };
+  console.log('Camper details:', camper);
 
+  const handleShowMore = () => {
+    // Відкриваємо нову вкладку з URL деталей транспортного засобу
+    window.open(`/camper/${camper.id}`, '_blank');
+  };
   const firstImage = camper.gallery && camper.gallery[0]?.thumb;
 
   const totalReviews = camper.reviews?.length || 0;
@@ -84,6 +89,8 @@ const CatalogListItem = ({ camper }) => {
                 {capitalize(camper.transmission)}
               </span>
             }
+            isActive={false}
+            isClickable={false}
           />
           <FeatureBadge
             icon={() => (
@@ -116,8 +123,9 @@ const CatalogListItem = ({ camper }) => {
             />
           )}
         </div>
-
-        <Button className={css.showMoreBtn}>Show more</Button>
+        <Button className={css.showMoreBtn} onClick={handleShowMore}>
+          Show more
+        </Button>
       </div>
     </div>
   );

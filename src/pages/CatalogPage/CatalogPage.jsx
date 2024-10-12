@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCampers } from '../../redux/slices/campersSlice.js';
 import CatalogList from '../../components/CatalogList/CatalogList.jsx';
 import css from './CatalogPage.module.css';
+import FilterSidebar from '../../components/FilterSidebar/FilterSidebar.jsx';
+import Header from '../../components/Header/Header.jsx';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
   const campers = useSelector(state => state.campers.items);
   const status = useSelector(state => state.campers.status);
-
-  // Виводимо campers в консоль для перевірки структури
-  console.log('Campers state:', campers);
 
   useEffect(() => {
     dispatch(fetchCampers());
@@ -25,8 +24,12 @@ const CatalogPage = () => {
   }
 
   return (
-    <div className={css.catalogPage}>
-      <CatalogList campers={campers.items} />
+    <div className={css.catalogPageCont}>
+      <Header className={css.header} />
+      <div className={css.catalogPage}>
+        <FilterSidebar className={css.filterSidebar} />
+        <CatalogList campers={campers.items} />
+      </div>
     </div>
   );
 };

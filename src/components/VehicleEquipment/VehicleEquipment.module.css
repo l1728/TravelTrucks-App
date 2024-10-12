@@ -1,0 +1,27 @@
+.iconsElem {
+  margin: 8px;
+  width: 32px;
+  height: 32px;
+}
+.featureText {
+  font-size: 16px;
+  color: #101828;
+}
+.filter_buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.filters {
+  display: flex;
+  flex-direction: column;
+}
+.divider {
+  border: none;
+  height: 1px;
+  background-color: #dadde1;
+  margin: 24px 0;
+}

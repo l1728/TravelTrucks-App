@@ -1,0 +1,55 @@
+.galleryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.imageGallery {
+  display: flex;
+  gap: 10px;
+  overflow-x: auto;
+}
+
+.galleryImage {
+  width: 292px;
+  height: 312;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.camperInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.camperName {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.camperDescription {
+  font-size: 16px;
+  color: #666;
+}
+
+.priceAndLocation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.camperPrice {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.camperLocation {
+  display: flex;
+  align-items: center;
+}
+
+.locationIcon {
+  width: 20px;
+  margin-right: 5px;
+}
