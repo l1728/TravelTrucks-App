@@ -1,0 +1,17 @@
+.header {
+  position: sticky; /* Залишає хедер на місці */
+  top: 0; /* Залишити його на верху */
+  z-index: 1000; /* Забезпечує, що хедер буде над іншими елементами */
+  background-color: white; /* Додайте фон для видимості */
+  height: 64px;
+  padding-left: 0;
+}
+
+.containerDetailPage {
+  display: flex;
+  flex-direction: column;
+  padding-left: 64px;
+  padding-right: 64px;
+  padding-top: 48px;
+  padding-bottom: 60px;
+}

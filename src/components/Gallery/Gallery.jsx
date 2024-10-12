@@ -2,7 +2,7 @@ import css from './Gallery.module.css';
 import LocationIcon from '../../assets/icons/icon_location.svg'; // Імпорт іконки локації
 import YellowStar from '../../assets/icons/icon_yellowStar.svg';
 
-const Gallery = ({ images, camper, name, description, price, location }) => {
+const Gallery = ({ images, camper, description, price }) => {
   const totalReviews = camper.reviews?.length || 0;
 
   const averageRating =
@@ -15,6 +15,20 @@ const Gallery = ({ images, camper, name, description, price, location }) => {
 
   return (
     <div className={css.galleryContainer}>
+      <h2 className={css.camperName}>{camper.name}</h2>
+      <div className={css.ratingAndLocation}>
+        <div className={css.rating}>
+          <img src={YellowStar} alt="Star Icon" className={css.iconsElem} />
+          {totalReviews > 0
+            ? `${averageRating.toFixed(1)} (${totalReviews} Reviews)`
+            : 'No reviews yet'}
+        </div>
+        <div className={css.locationAndIcon}>
+          <img src={LocationIcon} alt="Paper-map Icon" />
+          <p className={css.carLocation}>{camper.location}</p>
+        </div>
+      </div>
+      <p className={css.camperPrice}>€ {price.toFixed(2)}</p>
       <div className={css.imageGallery}>
         {images.map((img, index) => (
           <img
@@ -26,31 +40,7 @@ const Gallery = ({ images, camper, name, description, price, location }) => {
         ))}
       </div>
 
-      {/* Опис кемпера */}
-      <div className={css.camperInfo}>
-        <h2 className={css.camperName}>{name}</h2>
-        <p className={css.camperDescription}>{description}</p>
-
-        <div className={css.rating}>
-          <img src={YellowStar} alt="Star Icon" className={css.iconsElem} />
-          {totalReviews > 0
-            ? `${averageRating.toFixed(1)} (${totalReviews} Reviews)`
-            : 'No reviews yet'}
-        </div>
-
-        {/* Ціна та локація */}
-        <div className={css.priceAndLocation}>
-          <p className={css.camperPrice}>€ {price.toFixed(2)}</p>
-          <div className={css.camperLocation}>
-            <img
-              src={LocationIcon}
-              alt="Location Icon"
-              className={css.locationIcon}
-            />
-            <p>{location}</p>
-          </div>
-        </div>
-      </div>
+      <p className={css.camperDescription}>{description}</p>
     </div>
   );
 };

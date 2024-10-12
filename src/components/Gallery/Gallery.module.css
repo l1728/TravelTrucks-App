@@ -1,20 +1,20 @@
 .galleryContainer {
   display: flex;
   flex-direction: column;
-  gap: 20px;
 }
 
 .imageGallery {
   display: flex;
-  gap: 10px;
-  overflow-x: auto;
+  justify-content: baseline;
+  margin-bottom: 28px;
 }
 
 .galleryImage {
-  width: 292px;
+  width: calc((100% / 3) - 32px);
   height: 312;
   object-fit: cover;
   border-radius: 8px;
+  margin-right: 48px;
 }
 
 .camperInfo {
@@ -25,23 +25,20 @@
 
 .camperName {
   font-size: 24px;
-  font-weight: bold;
+  font-weight: 600;
+  margin: 0;
+  color: #101828;
 }
 
 .camperDescription {
   font-size: 16px;
-  color: #666;
-}
-
-.priceAndLocation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  color: #475467;
 }
 
 .camperPrice {
-  font-size: 20px;
-  font-weight: bold;
+  font-weight: 600;
+  font-size: 24px;
+  padding-bottom: 28px;
 }
 
 .camperLocation {
@@ -52,4 +49,29 @@
 .locationIcon {
   width: 20px;
   margin-right: 5px;
+}
+
+.ratingAndLocation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+.iconsElem {
+  padding-right: 8px;
+}
+
+.locationAndIcon {
+  display: flex;
+  flex-direction: row;
+  margin-left: 8px;
+  gap: 4px;
 }

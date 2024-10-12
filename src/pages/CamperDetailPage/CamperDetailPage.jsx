@@ -6,6 +6,7 @@ import Gallery from '../../components/Gallery/Gallery.jsx';
 // import ReviewList from '../../components/ReviewList/ReviewList.jsx';
 // import BookingForm from '../../components/BookingForm/BookingForm.jsx';
 import { fetchCamperById } from '../../redux/slices/campersSlice.js';
+import Header from '../../components/Header/Header.jsx';
 // import FeatureDetails from '../../components/FeatureDetails/FeatureDetails.jsx';
 
 const CamperDetailPage = () => {
@@ -36,19 +37,21 @@ const CamperDetailPage = () => {
   }
 
   return (
-    <div className={css.containerDetailPage}>
-      <h1 className={css.camperName}>{camper.name}</h1>
-      <Gallery
-        images={camper.gallery}
-        name={camper.name}
-        description={camper.description}
-        price={camper.price}
-        location={camper.location}
-        camper={camper}
-      />
-      {/* <FeatureDetails />
+    <div>
+      <Header className={css.header} />
+      <div className={css.containerDetailPage}>
+        {/* <h1 className={css.camperName}>{camper.name}</h1> */}
+        <Gallery
+          images={camper.gallery}
+          description={camper.description}
+          price={camper.price}
+          location={camper.location}
+          camper={camper}
+        />
+        {/* <FeatureDetails />
       <ReviewList />
       <BookingForm /> */}
+      </div>
     </div>
     // <div className={css.camperDetailPage}>
     //   <h1 className={css.camperName}>{camper.name}</h1>
