@@ -1,0 +1,52 @@
+.reviewList {
+  list-style-type: none;
+  padding: 0;
+}
+
+.reviewItem {
+  margin-bottom: 44px;
+}
+
+.reviewerInfo {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.reviewerCircle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 10px;
+  font-weight: 600;
+  font-size: 24px;
+  color: #e44848;
+}
+
+.stars {
+  color: gold; /* Колір зірок */
+}
+
+.star {
+  margin-right: 2px; /* Відстань між зірками */
+  font-size: 20px; /* Розмір зірок */
+}
+.rewName {
+  font-weight: 500;
+  font-size: 16px;
+}
+.nameAndStars {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+}
+.reviewListCont {
+  background-color: #ffffff;
+}

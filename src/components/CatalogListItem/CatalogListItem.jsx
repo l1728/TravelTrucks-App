@@ -19,7 +19,6 @@ const CatalogListItem = ({ camper }) => {
   console.log('Camper details:', camper);
 
   const handleShowMore = () => {
-    // Відкриваємо нову вкладку з URL деталей транспортного засобу
     window.open(`/camper/${camper.id}`, '_blank');
   };
   const firstImage = camper.gallery && camper.gallery[0]?.thumb;

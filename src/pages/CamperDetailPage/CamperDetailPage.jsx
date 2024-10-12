@@ -1,24 +1,24 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import css from './CamperDetailPage.module.css';
 import Gallery from '../../components/Gallery/Gallery.jsx';
-// import ReviewList from '../../components/ReviewList/ReviewList.jsx';
-// import BookingForm from '../../components/BookingForm/BookingForm.jsx';
+import BookingForm from '../../components/BookingForm/BookingForm.jsx';
 import { fetchCamperById } from '../../redux/slices/campersSlice.js';
 import Header from '../../components/Header/Header.jsx';
-// import FeatureDetails from '../../components/FeatureDetails/FeatureDetails.jsx';
+import FeatureDetails from '../../components/FeatureDetails/FeatureDetails.jsx';
+import ReviewList from '../../components/ReviewList/ReviewList.jsx';
 
 const CamperDetailPage = () => {
-  const { camperId } = useParams(); // Отримуємо ID кемпера з URL
+  const { camperId } = useParams();
   const dispatch = useDispatch();
   const camper = useSelector(state => state.campers.selectedCamper);
   const status = useSelector(state => state.campers.status);
+  const [activeTab, setActiveTab] = useState('features');
 
   useEffect(() => {
     const fetchCamperDetails = async () => {
       try {
-        // Заміна на ваш action, якщо він виконує запит
         await dispatch(fetchCamperById(camperId));
       } catch (error) {
         console.error('Error fetching camper:', error);
@@ -40,7 +40,6 @@ const CamperDetailPage = () => {
     <div>
       <Header className={css.header} />
       <div className={css.containerDetailPage}>
-        {/* <h1 className={css.camperName}>{camper.name}</h1> */}
         <Gallery
           images={camper.gallery}
           description={camper.description}
@@ -48,30 +47,40 @@ const CamperDetailPage = () => {
           location={camper.location}
           camper={camper}
         />
-        {/* <FeatureDetails />
-      <ReviewList />
-      <BookingForm /> */}
+        <div className={css.headerDetPageDown}>
+          <h2
+            className={`${css.headerItem} ${
+              activeTab === 'features' ? css.active : ''
+            }`}
+            onClick={() => setActiveTab('features')}
+          >
+            Features
+          </h2>
+          <h2
+            className={`${css.headerItem} ${
+              activeTab === 'reviews' ? css.active : ''
+            }`}
+            onClick={() => setActiveTab('reviews')}
+          >
+            Reviews
+          </h2>
+        </div>
+        <hr className={css.divider} />
+        <div className={css.contentSect}>
+          <div className={css.leftSection}>
+            {activeTab === 'features' ? (
+              <FeatureDetails camper={camper} className={css.featureCont} />
+            ) : (
+              <ReviewList className={css.rewCont} reviews={camper.reviews} />
+            )}
+          </div>
+
+          <div className={css.richSection}>
+            <BookingForm camperId={camper.id} />
+          </div>
+        </div>
       </div>
     </div>
-    // <div className={css.camperDetailPage}>
-    //   <h1 className={css.camperName}>{camper.name}</h1>
-    //   <Gallery images={camper.gallery} />
-    //   <p className={css.carDescript}>{camper.description}</p>
-    //   <div className={css.camperInfo}>
-    //     <h2>Specifications</h2>
-    //     <p>Transmission: {camper.transmission}</p>
-    //     <p>Engine: {camper.engine}</p>
-    //     <p>Length: {camper.length} m</p>
-    //     <p>Width: {camper.width} m</p>
-    //     <p>Height: {camper.height} m</p>
-    //     <p>Tank: {camper.tank} L</p>
-    //     <p>Consumption: {camper.consumption} L/100km</p>
-    //     <p>Price: € {camper.price.toFixed(2)}</p>
-    //   </div>
-    //   <h2>Reviews</h2>
-    //   <ReviewList reviews={camper.reviews} />
-    //   <BookingForm camperId={camper.id} />
-    // </div>
   );
 };
 

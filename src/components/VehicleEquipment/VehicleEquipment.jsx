@@ -52,7 +52,6 @@ const VehicleEquipment = ({ campers }) => {
 
       const filteredCampers = Array.isArray(campers)
         ? campers.filter(camper => {
-            // Перевірка для вкладених властивостей
             return vehicleEquipment.every(option => {
               const keys = option.split('.');
               return (
