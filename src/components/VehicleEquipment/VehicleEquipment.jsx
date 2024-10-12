@@ -7,8 +7,8 @@ import KitchenIcon from '../../assets/icons/icon-kitchen.svg';
 import TVIcon from '../../assets/icons/icon_tv.svg';
 import BathroomIcon from '../../assets/icons/icon_drop.svg';
 
-const VehicleEquipment = ({ campers }) => {
-  console.log('campers:', campers);
+const VehicleEquipment = campers => {
+  console.log('campers here:', campers);
 
   const equipmentOptions = [
     { name: 'AC', icon: ACIcon, propertyPath: 'AC' },

@@ -8,15 +8,19 @@ import Kitchen from '../../assets/icons/icon-kitchen.svg';
 import AC from '../../assets/icons/icon-AC.svg';
 import YellowStar from '../../assets/icons/icon_yellowStar.svg';
 import LocationIcon from '../../assets/icons/icon_location.svg';
-import { useState } from 'react';
+// import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleFavorite } from '../../redux/slices/campersSlice.js';
 
 const CatalogListItem = ({ camper }) => {
-  const [isFavorite, setIsFavorite] = useState(false);
+  const dispatch = useDispatch();
+  const favorites = useSelector(state => state.favorites.favorites);
+
+  const isFavorite = favorites.some(favorite => favorite.id === camper.id);
 
   const handleFavoriteToggle = () => {
-    setIsFavorite(prevState => !prevState);
+    dispatch(toggleFavorite(camper.id)); // Викликаємо функцію для управління обраними
   };
-  console.log('Camper details:', camper);
 
   const handleShowMore = () => {
     window.open(`/camper/${camper.id}`, '_blank');

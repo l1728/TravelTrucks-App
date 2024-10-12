@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import css from './BookingForm.module.css';
+import Button from '../Button/Button.jsx';
 
 const BookingForm = () => {
   const [formData, setFormData] = useState({
@@ -18,8 +19,42 @@ const BookingForm = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log('Booking details submitted:', formData);
-    setIsBooked(true); // Імітація успішної відправки
+
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const date = formData.bookingDate;
+
+    const nameRegex = /^[A-Za-zА-Яа-яЁёІіЇїЄєҐґ\s]+$/;
+    if (name.length < 3) {
+      alert('The name must contain at least 3 letters.');
+      return;
+    }
+    if (!nameRegex.test(name)) {
+      alert('The name must contain only letters and cannot contain numbers.');
+      return;
+    }
+
+    if (!name || !email || !date) {
+      alert('Please fill out all required fields.');
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
+
+    const selectedDate = new Date(date);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (selectedDate < today) {
+      alert('The reservation date cannot be in the past.');
+      return;
+    }
+
+    setIsBooked(true);
   };
 
   return (
@@ -59,13 +94,18 @@ const BookingForm = () => {
             value={formData.comment}
             onChange={handleChange}
           />
-          <button type="submit" className={css.submitButton}>
+          <Button type="submit" className={css.submitButton}>
             Send
-          </button>
+          </Button>
         </form>
       ) : (
         <div className={css.successMessage}>
-          <p>Your booking has been successfully submitted!</p>
+          <p>
+            Thank you for your booking! We are excited to help you with your
+            campervan adventure. Our team will reach out to you shortly to
+            confirm the details and assist with any further questions you might
+            have. We look forward to making your trip unforgettable!
+          </p>
         </div>
       )}
     </div>

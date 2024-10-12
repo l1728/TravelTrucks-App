@@ -28,6 +28,14 @@ const Header = ({ className }) => {
         >
           Catalog
         </a>
+        <a
+          href="/favorites"
+          className={`${css.link} ${
+            location.pathname === '/favorites' ? css.active : ''
+          }`}
+        >
+          Favorites
+        </a>
       </nav>
     </header>
   );

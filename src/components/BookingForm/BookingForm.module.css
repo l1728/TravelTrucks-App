@@ -1,10 +1,7 @@
-/* BookingForm.module.css */
 .bookingFormContainer {
   padding: 20px;
-  border: 1px solid #ccc;
   border-radius: 8px;
-  max-width: 400px;
-  margin: 0 auto;
+  margin: 44px 57px;
 }
 
 h2 {
@@ -22,7 +19,8 @@ p {
   padding: 10px;
   margin-bottom: 15px;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: none;
+  /* border: 1px solid #ccc; */
 }
 
 .submitButton {
@@ -42,6 +40,23 @@ p {
 .successMessage {
   text-align: center;
   padding: 20px;
-  background-color: #e0ffe0;
-  border-radius: 4px;
+  background-color: #8d94d5;
+  border-radius: 8px;
+}
+.bookingForm {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+.submitButton {
+  width: 166px;
+  height: 56px;
+  border-radius: 200px;
+}
+
+.bookingForm input::placeholder,
+.bookingForm textarea::placeholder {
+  color: #2a2525; /* Встановлюємо сірий колір для тексту у плейсхолдері */
+  opacity: 1; /* Опціонально, для кращої видимості */
 }

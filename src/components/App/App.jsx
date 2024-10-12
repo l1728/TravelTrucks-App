@@ -3,6 +3,7 @@ import Layout from '../Layout/Layout.jsx';
 import HomePage from '../../pages/HomePage/HomePage.jsx';
 import CatalogPage from '../../pages/CatalogPage/CatalogPage.jsx';
 import CamperDetailPage from '../../pages/CamperDetailPage/CamperDetailPage.jsx';
+import FavoritesPage from '../../pages/FavoritesPage/FavoritesPage.jsx';
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
           <Route index element={<HomePage />} />
           <Route path="/catalog" element={<CatalogPage />} />
           <Route path="/camper/:camperId" element={<CamperDetailPage />} />
+          <Route path="/favorites" element={<FavoritesPage />} />
         </Route>
       </Routes>
     </>
