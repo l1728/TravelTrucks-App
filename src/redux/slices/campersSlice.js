@@ -14,7 +14,7 @@ export const fetchCamperById = createAsyncThunk('campers/fetchCamperById', async
         return response.data;
     } catch (error) {
         console.error('Error fetching camper:', error);
-        throw error; // Необхідно кинути помилку, щоб Redux зміг її обробити
+        throw error; 
     }
 });
 
@@ -23,23 +23,25 @@ const campersSlice = createSlice({
     initialState: {
         items: [],
         selectedCamper: null,
-        favorites: [], // Додайте масив для обраних кемперів
+        favorites: JSON.parse(localStorage.getItem('favorites')) || [],  
         status: 'idle',
     },
     reducers: {
         toggleFavorite: (state, action) => {
             const camperId = action.payload;
-            const index = state.favorites.findIndex(favorite => favorite.id === camperId);
-            if (index >= 0) {
-                // Якщо кемпер вже улюблений, видаляємо його
-                state.favorites.splice(index, 1);
-            } else {
-                // Якщо не улюблений, додаємо його
+           const isFavorite = state.favorites.some(fav => fav.id === camperId);
+
+            if (!isFavorite) {
+                
                 const camperToAdd = state.items.find(camper => camper.id === camperId);
                 if (camperToAdd) {
                     state.favorites.push(camperToAdd);
                 }
+            } else {
+               
+                state.favorites = state.favorites.filter(fav => fav.id !== camperId);
             }
+            localStorage.setItem('favorites', JSON.stringify(state.favorites));
         },
     },
     extraReducers: (builder) => {
@@ -57,10 +59,10 @@ const campersSlice = createSlice({
             })
             .addCase(fetchCamperById.fulfilled, (state, action) => {
                 state.status = 'succeeded';
-                state.selectedCamper = action.payload; // Зберігаємо деталі обраного кемпера
+                state.selectedCamper = action.payload; 
             });
     },
 });
 
-export const { toggleFavorite } = campersSlice.actions; // Експортуємо дію toggleFavorite
+export const { toggleFavorite } = campersSlice.actions; 
 export default campersSlice.reducer;

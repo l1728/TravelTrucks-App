@@ -1,24 +1,24 @@
 import Button from '../Button/Button.jsx';
 import FeatureBadge from '../FeatureBadge/FeatureBadge.jsx';
 import css from './CatalogListItem.module.css';
-// import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavorite } from '../../redux/slices/campersSlice.js';
 import SvgIcon from '../SvgIcon/SvgIcon.jsx';
 
 const CatalogListItem = ({ camper }) => {
   const dispatch = useDispatch();
-  const favorites = useSelector(state => state.favorites.favorites);
+  const favorites = useSelector(state => state.campers.favorites);
 
   const isFavorite = favorites.some(favorite => favorite.id === camper.id);
 
   const handleFavoriteToggle = () => {
-    dispatch(toggleFavorite(camper.id)); // Викликаємо функцію для управління обраними
+    dispatch(toggleFavorite(camper.id));
   };
 
   const handleShowMore = () => {
     window.open(`/camper/${camper.id}`, '_blank');
   };
+
   const firstImage = camper.gallery && camper.gallery[0]?.thumb;
 
   const totalReviews = camper.reviews?.length || 0;
