@@ -1,16 +1,10 @@
 import Button from '../Button/Button.jsx';
 import FeatureBadge from '../FeatureBadge/FeatureBadge.jsx';
 import css from './CatalogListItem.module.css';
-import { FaHeart } from 'react-icons/fa';
-import TransmissionIcon from '../../assets/icons/icon_transm.svg';
-import Fuel from '../../assets/icons/icon_fuel-pump.svg';
-import Kitchen from '../../assets/icons/icon-kitchen.svg';
-import AC from '../../assets/icons/icon-AC.svg';
-import YellowStar from '../../assets/icons/icon_yellowStar.svg';
-import LocationIcon from '../../assets/icons/icon_location.svg';
 // import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavorite } from '../../redux/slices/campersSlice.js';
+import SvgIcon from '../SvgIcon/SvgIcon.jsx';
 
 const CatalogListItem = ({ camper }) => {
   const dispatch = useDispatch();
@@ -55,25 +49,34 @@ const CatalogListItem = ({ camper }) => {
               className={`${css.heartIcon} ${isFavorite ? css.favorite : ''}`}
               onClick={handleFavoriteToggle}
             >
-              <FaHeart
-                style={{
-                  fill: isFavorite ? 'red' : 'transparent',
-                  stroke: isFavorite ? 'red' : 'black',
-                  strokeWidth: 6,
-                }}
+              <SvgIcon
+                id="heart"
+                width={24}
+                height={24}
+                className={css.iconsElemHeart}
               />
             </div>
           </div>
         </div>
         <div className={css.ratingAndLocation}>
           <div className={css.rating}>
-            <img src={YellowStar} alt="Star Icon" className={css.iconsElem} />
+            <SvgIcon
+              id="rating"
+              width={24}
+              height={24}
+              className={css.iconsElemStar}
+            />
             {totalReviews > 0
               ? `${averageRating.toFixed(1)} (${totalReviews} Reviews)`
               : 'No reviews yet'}
           </div>
           <div className={css.locationAndIcon}>
-            <img src={LocationIcon} alt="Paper-map Icon" />
+            <SvgIcon
+              id="map"
+              width={28}
+              height={28}
+              className={css.iconsElem}
+            />
             <p className={css.carLocation}>{camper.location}</p>
           </div>
         </div>
@@ -81,9 +84,10 @@ const CatalogListItem = ({ camper }) => {
         <div className={css.allCarDetails}>
           <FeatureBadge
             icon={() => (
-              <img
-                src={TransmissionIcon}
-                alt="Transmission Icon"
+              <SvgIcon
+                id="transmission"
+                width={32}
+                height={32}
                 className={css.iconsElem}
               />
             )}
@@ -97,7 +101,12 @@ const CatalogListItem = ({ camper }) => {
           />
           <FeatureBadge
             icon={() => (
-              <img src={Fuel} alt="Fuel-Pump Icon" className={css.iconsElem} />
+              <SvgIcon
+                id="pump"
+                width={30}
+                height={28}
+                className={css.iconsElem}
+              />
             )}
             text={
               <span className={css.featureText}>
@@ -108,9 +117,10 @@ const CatalogListItem = ({ camper }) => {
           {camper.kitchen && (
             <FeatureBadge
               icon={() => (
-                <img
-                  src={Kitchen}
-                  alt="Cup_of_hot_tea Icon"
+                <SvgIcon
+                  id="kitchen"
+                  width={32}
+                  height={32}
                   className={css.iconsElem}
                 />
               )}
@@ -120,7 +130,12 @@ const CatalogListItem = ({ camper }) => {
           {camper.AC && (
             <FeatureBadge
               icon={() => (
-                <img src={AC} alt="Blow-wind Icon" className={css.iconsElem} />
+                <SvgIcon
+                  id="AC"
+                  width={32}
+                  height={32}
+                  className={css.iconsElem}
+                />
               )}
               text={<span className={css.featureText}>AC</span>}
             />

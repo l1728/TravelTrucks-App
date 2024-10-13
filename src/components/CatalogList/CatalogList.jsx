@@ -9,7 +9,7 @@ const CatalogList = ({ campers }) => {
   const handleLoadMore = () => {
     setVisibleItems(prevVisibleItems => prevVisibleItems + 4);
   };
-
+  console.log('Favorite campers:', campers);
   return (
     <div className={css.list}>
       {campers && campers.length > 0 ? (

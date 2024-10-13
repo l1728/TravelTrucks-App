@@ -1,9 +1,6 @@
 import FeatureBadge from '../FeatureBadge/FeatureBadge.jsx';
 import css from './FeatureDetails.module.css';
-import TransmissionIcon from '../../assets/icons/icon_transm.svg';
-import Fuel from '../../assets/icons/icon_fuel-pump.svg';
-import Kitchen from '../../assets/icons/icon-kitchen.svg';
-import AC from '../../assets/icons/icon-AC.svg';
+import SvgIcon from '../SvgIcon/SvgIcon.jsx';
 
 const FeatureDetails = ({ camper, className }) => {
   const capitalize = text => text.charAt(0).toUpperCase() + text.slice(1);
@@ -12,9 +9,10 @@ const FeatureDetails = ({ camper, className }) => {
       <div className={css.allCarDetails}>
         <FeatureBadge
           icon={() => (
-            <img
-              src={TransmissionIcon}
-              alt="Transmission Icon"
+            <SvgIcon
+              id="transmission"
+              width={24}
+              height={24}
               className={css.iconsElem}
             />
           )}
@@ -28,7 +26,12 @@ const FeatureDetails = ({ camper, className }) => {
         />
         <FeatureBadge
           icon={() => (
-            <img src={Fuel} alt="Fuel-Pump Icon" className={css.iconsElem} />
+            <SvgIcon
+              id="pump"
+              width={24}
+              height={24}
+              className={css.iconsElem}
+            />
           )}
           text={
             <span className={css.featureText}>{capitalize(camper.engine)}</span>
@@ -37,9 +40,10 @@ const FeatureDetails = ({ camper, className }) => {
         {camper.kitchen && (
           <FeatureBadge
             icon={() => (
-              <img
-                src={Kitchen}
-                alt="Cup_of_hot_tea Icon"
+              <SvgIcon
+                id="kitchen"
+                width={24}
+                height={24}
                 className={css.iconsElem}
               />
             )}
@@ -49,7 +53,12 @@ const FeatureDetails = ({ camper, className }) => {
         {camper.AC && (
           <FeatureBadge
             icon={() => (
-              <img src={AC} alt="Blow-wind Icon" className={css.iconsElem} />
+              <SvgIcon
+                id="AC"
+                width={24}
+                height={24}
+                className={css.iconsElem}
+              />
             )}
             text={<span className={css.featureText}>AC</span>}
           />

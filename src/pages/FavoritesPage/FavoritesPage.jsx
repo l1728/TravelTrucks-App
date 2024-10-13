@@ -8,7 +8,9 @@ import Header from '../../components/Header/Header.jsx';
 
 const FavoritesPage = () => {
   const dispatch = useDispatch();
-  const favorites = useSelector(state => state.favorites.favorites); // Отримуємо обрані кемпери
+
+  console.log('favorites', favorites);
+  const favorites = useSelector(state => state.campers.favorites); // Отримуємо обрані кемпери
   const status = useSelector(state => state.campers.status);
 
   // Витягування кемперів може бути необов'язковим

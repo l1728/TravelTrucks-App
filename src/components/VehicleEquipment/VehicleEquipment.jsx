@@ -1,25 +1,21 @@
 import { useEffect, useState } from 'react';
 import css from './VehicleEquipment.module.css';
 import FeatureBadge from '../FeatureBadge/FeatureBadge.jsx';
-import ACIcon from '../../assets/icons/icon-AC.svg';
-import AutomaticIcon from '../../assets/icons/icon_transm.svg';
-import KitchenIcon from '../../assets/icons/icon-kitchen.svg';
-import TVIcon from '../../assets/icons/icon_tv.svg';
-import BathroomIcon from '../../assets/icons/icon_drop.svg';
+import SvgIcon from '../../components/SvgIcon/SvgIcon';
 
 const VehicleEquipment = campers => {
-  console.log('campers here:', campers);
+  console.log('campers - incoming hereVehicleEquipment:', campers);
 
   const equipmentOptions = [
-    { name: 'AC', icon: ACIcon, propertyPath: 'AC' },
+    { name: 'AC', icon: 'AC', propertyPath: 'AC' },
     {
       name: 'Automatic',
-      icon: AutomaticIcon,
-      propertyPath: 'transmission.automatic',
+      icon: 'transmission',
+      propertyPath: 'transmission',
     },
-    { name: 'Kitchen', icon: KitchenIcon, propertyPath: 'kitchen' },
-    { name: 'TV', icon: TVIcon, propertyPath: 'TV' },
-    { name: 'Bathroom', icon: BathroomIcon, propertyPath: 'bathroom' },
+    { name: 'Kitchen', icon: 'kitchen', propertyPath: 'kitchen' },
+    { name: 'TV', icon: 'TV', propertyPath: 'TV' },
+    { name: 'Bathroom', icon: 'bathroom', propertyPath: 'bathroom' },
   ];
 
   const [selectedFilters, setSelectedFilters] = useState({
@@ -65,10 +61,10 @@ const VehicleEquipment = campers => {
           })
         : [];
 
-      console.log('campers:', campers);
+      console.log('campersVehicleEquipment:', campers);
 
-      console.log('filteredCampers:', filteredCampers);
-      console.log('vehicleEquipment', vehicleEquipment);
+      console.log('filteredCampersVehicleEquipment:', filteredCampers);
+      console.log('vehicleEquipmentVehicleEquipment', vehicleEquipment);
 
       return { vehicleEquipment, filteredCampers };
     });
@@ -83,9 +79,10 @@ const VehicleEquipment = campers => {
           <FeatureBadge
             key={item.name}
             icon={() => (
-              <img
-                src={item.icon}
-                alt={`${item.name} Icon`}
+              <SvgIcon
+                id={item.icon}
+                width={32}
+                height={22}
                 className={css.iconsElem}
               />
             )}

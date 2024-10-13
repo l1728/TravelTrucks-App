@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import LocationIcon from '../../assets/icons/icon_location.svg';
 import css from './LocationSelect.module.css';
+import SvgIcon from '../SvgIcon/SvgIcon.jsx';
 
 const LocationSelect = ({ selectedLocation, onLocationChange }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,11 +25,7 @@ const LocationSelect = ({ selectedLocation, onLocationChange }) => {
       <p className={css.locationTitle}>Location</p>
       <div className={css.locationContainer}>
         <div className={css.customSelect} onClick={() => setIsOpen(!isOpen)}>
-          <img
-            src={LocationIcon}
-            alt="Paper-map Icon"
-            className={css.locationIcon}
-          />
+          <SvgIcon id="map" width={22} height={22} className={css.iconsElem} />
           {selectedLocation}
           <span className={css.arrow}></span>
         </div>

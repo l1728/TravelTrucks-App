@@ -1,6 +1,5 @@
+import SvgIcon from '../SvgIcon/SvgIcon.jsx';
 import css from './Gallery.module.css';
-import LocationIcon from '../../assets/icons/icon_location.svg'; // Імпорт іконки локації
-import YellowStar from '../../assets/icons/icon_yellowStar.svg';
 
 const Gallery = ({ images, camper, description, price }) => {
   const totalReviews = camper.reviews?.length || 0;
@@ -18,13 +17,18 @@ const Gallery = ({ images, camper, description, price }) => {
       <h2 className={css.camperName}>{camper.name}</h2>
       <div className={css.ratingAndLocation}>
         <div className={css.rating}>
-          <img src={YellowStar} alt="Star Icon" className={css.iconsElem} />
+          <SvgIcon
+            id="rating"
+            width={24}
+            height={24}
+            className={css.iconsElemStar}
+          />
           {totalReviews > 0
             ? `${averageRating.toFixed(1)} (${totalReviews} Reviews)`
             : 'No reviews yet'}
         </div>
         <div className={css.locationAndIcon}>
-          <img src={LocationIcon} alt="Paper-map Icon" />
+          <SvgIcon id="map" width={28} height={28} className={css.iconsElem} />
           <p className={css.carLocation}>{camper.location}</p>
         </div>
       </div>

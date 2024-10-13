@@ -122,6 +122,10 @@
   margin-left: 8px;
   gap: 4px;
 }
+
+.iconsElemStar {
+  fill: #ffc531;
+}
 .featureText {
   font-weight: 500;
   font-size: 16px;
@@ -130,7 +134,7 @@
   margin-bottom: 0;
 }
 
-/* .heartIcon {
+.heartIcon {
   cursor: pointer;
   stroke: 6px black;
   color: transparent;
@@ -144,4 +148,4 @@
 .favorite svg {
   stroke: red;
   fill: red;
-} */
+}
