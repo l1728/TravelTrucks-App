@@ -101,7 +101,7 @@ const FavoritesPage = () => {
           </div>
           {favorites.length > visibleItems && (
             <Button className={css.showMoreBtn} onClick={handleLoadMore}>
-              Show more
+              Load more
             </Button>
           )}
         </div>
