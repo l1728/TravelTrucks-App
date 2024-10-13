@@ -47,14 +47,19 @@
   overflow-y: auto;
 }
 .showMoreBtn {
-  background-color: #e44848;
-  margin-left: 1px;
-  width: 166px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: transparent;
+  color: #101828;
+  border: 2px solid #dadde1;
+  cursor: pointer;
+  width: 145px;
   height: 56px;
-  border: none;
+  font-weight: medium;
+  font-size: 16px;
 }
 .showMoreBtn:hover {
-  background-color: #d84343;
+  border: 2px solid #d84343;
 }
 .catalogBtn {
   display: flex;
