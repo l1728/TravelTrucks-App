@@ -46,3 +46,19 @@
   height: calc(100vh - 116px);
   overflow-y: auto;
 }
+.showMoreBtn {
+  background-color: #e44848;
+  margin-left: 1px;
+  width: 166px;
+  height: 56px;
+  border: none;
+}
+.showMoreBtn:hover {
+  background-color: #d84343;
+}
+.catalogBtn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
