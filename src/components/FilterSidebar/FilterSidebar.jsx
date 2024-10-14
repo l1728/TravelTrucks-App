@@ -1,76 +1,82 @@
-import { useState } from 'react';
 import css from './FilterSidebar.module.css';
 import VehicleEquipment from '../VehicleEquipment/VehicleEquipment.jsx';
 import Button from '../Button/Button.jsx';
-import { useDispatch } from 'react-redux';
 import { fetchCampers } from '../../redux/campersApi.js';
-// import VehicleType from '../VehicleType/VehicleType.jsx';
+import VehicleType from '../VehicleType/VehicleType.jsx';
+import { resetFilters } from '../../redux/slices/filterSlice.js';
+import { useDispatch, useSelector } from 'react-redux';
+import { setFilter } from '../../redux/slices/filterSlice.js';
+import LocationSelect from '../LocationSelect/LocationSelect.jsx';
+import { useState } from 'react';
+import Loader from '../Loader/Loader.jsx';
 
 const FilterSidebar = ({ className }) => {
+  const [isLoading, setIsLoading] = useState(false);
+
   const dispatch = useDispatch();
 
-  const [queryArr, setQueryArr] = useState([
-    { AC: false },
-    { transmission: '' },
-    { kitchen: false },
-    { TV: false },
-    { bathroom: false },
-  ]);
+  const filters = useSelector(state => state.filters.filters);
 
-  // Функція для формування та відправки запиту
-  const handleSubmit = e => {
+  const selectedLocation = useSelector(
+    state => state.filters.filters.find(f => f.location)?.location || ''
+  );
+  const handleSubmit = async e => {
     e.preventDefault();
+
+    setIsLoading(true);
+
+    dispatch(resetFilters());
+
     const searchParams = new URLSearchParams();
 
-    // Перебір масиву з фільтрами та додавання ключів до URLSearchParams
-    queryArr.forEach(item => {
+    filters.forEach(item => {
       const key = Object.keys(item)[0];
       const value = item[key];
 
-      // Додаємо до запиту лише правдиві значення
-      if (key === 'transmission' && value) {
-        // Якщо значення transmission правдиве, додаємо 'automatic'
-        searchParams.append(key, 'automatic'); // або 'manual', залежно від вашого випадку
+      if (key === 'location' && value) {
+        const formattedLocation = value.replace(/\+/g, '%20');
+        searchParams.append(key, formattedLocation);
+      } else if (key === 'transmission' && value) {
+        searchParams.append(key, 'automatic');
+      } else if (key === 'form' && value) {
+        searchParams.append(key, value);
       } else if (value) {
         searchParams.append(key, value.toString());
       }
     });
+
     const queryString = searchParams.toString();
-    dispatch(fetchCampers(queryString)); // Відправляємо запит до Redux для отримання даних
-    console.log(queryString); // Виводимо рядок запиту для перевірки
+    await dispatch(fetchCampers(queryString));
+    setIsLoading(false);
   };
 
-  // Оновлення значень фільтрів при їх виборі
-  const handleFilterChange = key => {
-    const updatedFilters = queryArr.map(item => {
-      if (key in item) {
-        return { [key]: !item[key] };
-      }
-      return item;
-    });
-
-    setQueryArr(updatedFilters);
+  const handleFilterChange = (key, value) => {
+    dispatch(setFilter({ key, value }));
   };
 
   return (
     <div className={`${css.filter_sidebar} ${className}`}>
-      <VehicleEquipment
-        handleFilterChange={handleFilterChange}
-        queryArr={queryArr}
-      />
-
-      {/* <VehicleType
-        handleFilterChange={handleFilterChange}
-        queryArr={queryArr}
-      /> */}
-
-      <div className={css.search_btn}>
-        <Button className={css.buttonFilter} onClick={handleSubmit}>
-          Search
-        </Button>
-      </div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <>
+          <LocationSelect selectedLocation={selectedLocation} />
+          <VehicleEquipment
+            handleFilterChange={handleFilterChange}
+            queryArr={filters}
+          />
+          <VehicleType
+            handleFilterChange={handleFilterChange}
+            queryArr={filters}
+          />
+          <div className={css.search_btn}>
+            <Button className={css.buttonFilter} onClick={handleSubmit}>
+              Search
+            </Button>
+          </div>
+        </>
+      )}
     </div>
   );
 };
-
 export default FilterSidebar;

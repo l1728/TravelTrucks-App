@@ -3,10 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import CatalogListItem from '../../components/CatalogListItem/CatalogListItem.jsx';
 import css from './FavoritesPage.module.css';
-import FilterSidebar from '../../components/FilterSidebar/FilterSidebar.jsx';
 import Header from '../../components/Header/Header.jsx';
 import Button from '../../components/Button/Button.jsx';
 import { fetchCampers } from '../../redux/campersApi.js';
+import BookingForm from '../../components/BookingForm/BookingForm.jsx';
+import Loader from '../../components/Loader/Loader.jsx';
 
 const FavoritesPage = () => {
   const dispatch = useDispatch();
@@ -27,7 +28,7 @@ const FavoritesPage = () => {
   const visibleFavorites = favorites.slice(0, visibleItems);
 
   if (status === 'loading') {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   if (!favorites || favorites.length === 0) {
@@ -38,7 +39,7 @@ const FavoritesPage = () => {
     <div className={css.favorPageCont}>
       <Header className={css.header} />
       <div className={css.favorPage}>
-        <FilterSidebar className={css.filterSidebar} />
+        <BookingForm className={css.filterSidebar} />
         <div className={css.catalogBtn}>
           <div className={css.catalogList}>
             {visibleFavorites.map(camper => (

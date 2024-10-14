@@ -33,7 +33,6 @@ const campersSlice = createSlice({
                 state.status = 'loading';
             })
             .addCase(fetchCampers.fulfilled, (state, action) => {
-                console.log('Fetched campers:', action.payload);
                 state.status = 'succeeded';
                 state.items = action.payload; 
             })

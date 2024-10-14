@@ -7,14 +7,10 @@ export const fetchCampers = createAsyncThunk(
   async ( filter,  thunkAPI) => {
     try {
       const { data } = await campersApi.get(`?${filter}`);
-      
-      console.log('camperrsApi', data);
-
-
-      return data.items;// Повертаємо список кемперів
+      return data.items;
     } catch (error) {
       console.error('Error fetching campers:', error);
-      return thunkAPI.rejectWithValue(error.message); // Обробка помилки
+      return thunkAPI.rejectWithValue(error.message); 
     }
   }
 );
@@ -25,10 +21,10 @@ export const fetchCamperById = createAsyncThunk(
   async (camperId, thunkAPI) => {
     try {
       const response = await axios.get(`https://66b1f8e71ca8ad33d4f5f63e.mockapi.io/campers/${camperId}`);
-      return response.data; // Повертаємо знайдений кемпер
+      return response.data; 
     } catch (error) {
       console.error('Error fetching camper:', error);
-      return thunkAPI.rejectWithValue(error.message); // Обробка помилки
+      return thunkAPI.rejectWithValue(error.message); 
     }
   }
 );

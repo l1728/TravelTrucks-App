@@ -7,6 +7,7 @@ import FilterSidebar from '../../components/FilterSidebar/FilterSidebar.jsx';
 import Header from '../../components/Header/Header.jsx';
 import { fetchCampers } from '../../redux/campersApi.js';
 import { selectorCampers } from '../../redux/selectors.js';
+import Loader from '../../components/Loader/Loader.jsx';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,7 @@ const CatalogPage = () => {
   }, [dispatch]);
 
   if (status === 'loading') {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   if (!campers || campers.length === 0) {

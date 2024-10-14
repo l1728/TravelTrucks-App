@@ -30,12 +30,12 @@
 }
 
 .stars {
-  color: gold; /* Колір зірок */
+  color: gold;
 }
 
 .star {
-  margin-right: 2px; /* Відстань між зірками */
-  font-size: 20px; /* Розмір зірок */
+  margin-right: 2px;
+  font-size: 20px;
 }
 .rewName {
   font-weight: 500;
