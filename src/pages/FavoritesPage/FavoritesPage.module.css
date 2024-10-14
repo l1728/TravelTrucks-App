@@ -1,9 +1,10 @@
-.catalogPage {
+.favorPage {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   margin-left: 64px;
   gap: 67px;
+  margin-top: 33px;
 }
 
 .locationTitle {
@@ -25,9 +26,10 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Додає тінь (за бажанням) */
 }
 
-.catalogPageCont {
+.favorPageCont {
   display: flex;
   flex-direction: column;
+  max-width: 1440px;
 }
 
 .header {

@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import css from './CamperDetailPage.module.css';
 import Gallery from '../../components/Gallery/Gallery.jsx';
 import BookingForm from '../../components/BookingForm/BookingForm.jsx';
-import { fetchCamperById } from '../../redux/slices/campersSlice.js';
 import Header from '../../components/Header/Header.jsx';
 import FeatureDetails from '../../components/FeatureDetails/FeatureDetails.jsx';
 import ReviewList from '../../components/ReviewList/ReviewList.jsx';
+import { fetchCamperById } from '../../redux/campersApi.js';
 
 const CamperDetailPage = () => {
   const { camperId } = useParams();
