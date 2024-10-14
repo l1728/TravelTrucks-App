@@ -4,7 +4,7 @@ import VehicleEquipment from '../VehicleEquipment/VehicleEquipment.jsx';
 import Button from '../Button/Button.jsx';
 import { useDispatch } from 'react-redux';
 import { fetchCampers } from '../../redux/campersApi.js';
-import VehicleType from '../VehicleType/VehicleType.jsx';
+// import VehicleType from '../VehicleType/VehicleType.jsx';
 
 const FilterSidebar = ({ className }) => {
   const dispatch = useDispatch();
