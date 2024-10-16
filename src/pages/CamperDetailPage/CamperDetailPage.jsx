@@ -8,6 +8,7 @@ import Header from '../../components/Header/Header.jsx';
 import FeatureDetails from '../../components/FeatureDetails/FeatureDetails.jsx';
 import ReviewList from '../../components/ReviewList/ReviewList.jsx';
 import { fetchCamperById } from '../../redux/campersApi.js';
+import Loader from '../../components/Loader/Loader.jsx';
 
 const CamperDetailPage = () => {
   const { camperId } = useParams();
@@ -29,7 +30,7 @@ const CamperDetailPage = () => {
   }, [dispatch, camperId]);
 
   if (status === 'loading') {
-    return <p>Loading...</p>;
+    return <Loader />;
   }
 
   if (!camper) {
